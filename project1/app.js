@@ -1,8 +1,5 @@
 $(() => {
 
-const $test = String.fromCodePoint( 0x1F600 );
-$('#content').text($test);
-
 const emojis = [
   {
     name: 'Grinning Face',
@@ -17,10 +14,23 @@ const emojis = [
     codepoint: 0x1F609,
   },
   {
-    name: 'Smirking Face'
+    name: 'Smirking Face',
     codepoint: 0x1F60F,
   }
-]
+];
+
+const randomEmoji = emojis[Math.floor(Math.random()*4)];
+  console.log(randomEmoji);
+  console.log(randomEmoji.name);
+  console.log(randomEmoji.codepoint);
+
+
+
+
+
+
+// const $test = String.fromCodePoint( 0x1F600 );
+// $('#content').text($test);
 
 
 
