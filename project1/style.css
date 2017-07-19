@@ -1,0 +1,41 @@
+
+.header {
+  border: 1px solid black;
+  height: 100px;
+  width: 960px;
+  position: relative;
+}
+
+.emoji-box {
+  border: 1px solid red;
+  height: 250px;
+  width: 400px;
+  position: relative;
+  top: 110px;
+  left: 279px;
+}
+
+#content {
+  text-align: center;
+  font-size: 125px;
+  margin-top: 45px;
+}
+
+.choice-box {
+  border: 1px solid blue;
+  height: 300px;
+  width: 500px;
+  position: relative;
+  left: 230px;
+  top: 130px;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.answer-button {
+  border: 1px solid green;
+  width: 200px;
+  padding: 20px;
+}
