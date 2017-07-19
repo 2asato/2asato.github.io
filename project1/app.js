@@ -1,6 +1,7 @@
 $(() => {
 
-const emojis = [
+// array of emojis, codepoints are used to display the emoji
+const $emojis = [
   {
     name: 'Grinning Face',
     codepoint: 0x1F600,
@@ -19,10 +20,19 @@ const emojis = [
   }
 ];
 
-const randomEmoji = emojis[Math.floor(Math.random()*4)];
-  console.log(randomEmoji);
-  console.log(randomEmoji.name);
-  console.log(randomEmoji.codepoint);
+// pulls random emoji from array
+const $randomEmoji = $emojis[Math.floor(Math.random()*4)];
+  // console.log($randomEmoji);
+  // console.log($randomEmoji.name);
+  console.log($randomEmoji.codepoint);
+
+const $displayEmoji = () => {
+  const $emojiCodepoint = String.fromCodePoint($randomEmoji.codepoint);
+    // console.log($emojiCodepoint);
+    $('#content').text($emojiCodepoint);
+}
+$displayEmoji();
+
 
 
 
