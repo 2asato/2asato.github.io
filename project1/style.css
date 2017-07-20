@@ -85,19 +85,29 @@ h1 {
 }
 
 button {
-  border: 1px solid #e9fbfa;
+  border: 1px solid #24dbc9;
   width: 498px;
   padding: 20px;
   height: 50px;
   border-radius: 12px;
   font-size: 20px;
   font-family: Frijole;
-  color: #24dbc9;
+  color: #808080;
   background-color: #e6e6e6;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
 }
 
 button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: #24dbc9;
+    color: white;
+}
+
+button:active {
+  background-color: #24dbc9;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 #one {
