@@ -1,5 +1,7 @@
 $(() => {
 
+  let score = 0;
+
 // array of emojis, codepoints are used to display the emoji
 const $emojis = [
   {
@@ -55,7 +57,7 @@ $displayEmoji();
 const $displayNames = () => {
   // for (let i = 0; i < $emojis.length; i++) {
   //   console.log($emojis[i]);
-    $('button').text($emojis[0].name);
+    $('#one').text($emojis[0].name);
     $('#two').text($emojis[1].name);
     $('#three').text($emojis[2].name);
     $('#four').text($emojis[3].name);
@@ -69,6 +71,24 @@ const checkClick = () => {
 }
 checkClick();
 
+const rightOrWrong = () => {
+  for (let i = 0; i < $emojis.length; i++) {
+    if ($('.answer-button').text($emojis[i].name === $randomEmoji.name)) {
+      console.log('RIGHT!');
+      score++;
+      updateScore();
+    } else {
+      console.log('WRONG');
+    }
+  }
+}
+
+const updateScore = () => {
+     $('#score').text('SCORE: ' + score);
+  }
+  updateScore();
+
+
 
 
 
@@ -77,6 +97,7 @@ checkClick();
 
 $('button').on('click', (e) => {
   // console.log('clicked');
+  rightOrWrong();
 })
 
 
