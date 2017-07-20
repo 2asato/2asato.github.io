@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Frijole" rel="stylesheet">
     <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -11,23 +12,56 @@
     <script src="app.js"></script>
   </head>
   <body>
-  
-      <div class="header">
+    <div id="wrapper">
+        <div class="header">
+        <h1>EMOJIS</h1>
+      </div>
 
+      <div class="leftside">
+        <span>😎<br></span>
+        <span>😂<br></span>
+        <span>😗<br></span>
+        <span>😐<br></span>
+        <span>🙄<br></span>
+        <span>😣<br></span>
+        <span>😮<br></span>
+        <span>😫<br></span>
+        <!-- <span><br></span> -->
+      </div>
+
+      <div class="rightside">
+        <span>😜<br></span>
+        <span>🤤<br></span>
+        <span>😲<br></span>
+        <span>☹️<br></span>
+        <span>😬<br></span>
+        <span>😠<br></span>
+        <span>😖<br></span>
+        <span>😍<br></span>
+        <!-- <span><br></span> -->
       </div>
 
       <div class="emoji-box">
-      <p id='content'></p>
-
+        <p id='content'></p>
       </div>
+
+      <div class="stats">
+        <p>SCORE:</p>
+      </div>
+
       <div class="container">
         <div class="choice-box">
-          <button class="answer-button-topL"></button>
-          <button class="answer-button-topR"></button>
-          <button class="answer-button-bottomL"></button>
-          <button class="answer-button-bottomR"></button>
+          <button class="answer-button" id="one"></button>
+          <button class="answer-button" id="two"></button>
+          <button class="answer-button" id="three"></button>
+          <button class="answer-button" id="four"></button>
         </div>
       </div>
+
+      <!-- <div class="footer">
+        <span id="bottom">😎😂😂😂😂😂😂😂😂</span>
+      </div> -->
+    </div>
 
 
 
