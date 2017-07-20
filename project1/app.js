@@ -64,7 +64,7 @@ $displayNames();
 
 const checkClick = () => {
   check = $("button").click(function() {
-      // console.log((this.id)); // or alert($(this).attr('id'));
+      console.log((this.id)); // or alert($(this).attr('id'));
   });
 }
 checkClick();
