@@ -85,10 +85,17 @@ const $displayNames = () => {
   $emojisShuffle();
   for (let i = 0; i < $emojis.length; i++) {
     console.log($emojis[i]);
+    // displays name on DOM
     $('#one').text($emojis[0].name);
+    // gives value of name in html
+    $('#one').attr('value', $emojis[0].name)
     $('#two').text($emojis[1].name);
+    $('#two').attr('value', $emojis[1].name)
     $('#three').text($emojis[2].name);
+    $('#three').attr('value', $emojis[2].name)
     $('#four').text($emojis[3].name);
+    $('#four').attr('value', $emojis[3].name)
+
     // $('.answer-button').eq(i).text($emojis[Math.floor(Math.random()*4)].name);
     // $('.answer-button').text()
   }
@@ -96,24 +103,35 @@ const $displayNames = () => {
 $displayNames();
 
 
-// const checkClick = () => {
-//   check = $("button").click(function() {
-//       console.log((this.id));
-//   });
-// }
-// checkClick();
-//
-// const rightOrWrong = () => {
-//   for (let i = 0; i < $emojis.length; i++) {
-//     if ($('.answer-button').text($emojis[i].name === $randomEmojiImage.name)) {
-//       console.log('RIGHT');
-//       score++;
-//       updateScore();
-//     } else {
-//       console.log('WRONG');
-//     }
-//   }
-// }
+const checkClick = () => {
+  check = $("button").click(function() {
+    // checks the click of the button by its id
+      console.log((this.id));
+  });
+}
+checkClick();
+
+const buttonValue = () => {
+  $('button').click(function(){
+    let value = $(this.id);
+  })
+}
+
+
+
+
+
+const rightOrWrong = () => {
+  for (let i = 0; i < $emojis.length; i++) {
+    if ($('#one').text('hi')) {
+      console.log('RIGHT');
+      score++;
+      // updateScore();
+    } else {
+      console.log('WRONG');
+    }
+  }
+}
 //
 // const updateScore = () => {
 //      $('#score').text('SCORE: ' + score);
