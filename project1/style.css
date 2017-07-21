@@ -43,7 +43,7 @@ h1 {
   width: 400px;
   position: relative;
   top: 30px;
-  left: 279px;
+  left: 29%;
   clear: both;
 }
 
@@ -59,7 +59,7 @@ h1 {
   height: 80px;
   position: relative;
   clear: both;
-  left: 230px;
+  left: 25%;
   top: 15px;
 }
 
@@ -75,7 +75,7 @@ h1 {
   height: 300px;
   width: 500px;
   position: relative;
-  left: 230px;
+  left: 25%;
   top: 20px;
   display: flex;
   flex-wrap: wrap;
