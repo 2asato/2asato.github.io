@@ -31,19 +31,23 @@ const $emojis = [
 // fisher yates shuffle to get random order of $emojis
 let x = $emojis.length, y, temp;
 
+const $emojisShuffle = () => {
 while(--x > 0){
   y = Math.floor(Math.random()*(x+1));
   temp = $emojis[y];
   $emojis[y] = $emojis[x];
   $emojis[x] = temp;
-}
-console.log($emojis);
-console.log($emojis[1]);
+  }
+};
+// $emojisShuffle();
+// console.log($emojis);
+// console.log($emojis[1]);
 
-for (let i = 0; i < $emojis.length; i++ ){
-  $emojisMoved.push($emojis[i]);
-}
-console.log($emojisMoved);
+// ??????
+// for (let i = 0; i < $emojis.length; i++ ){
+//   $emojisMoved.push($emojis[i]);
+// }
+// console.log($emojisMoved);
 
 
 // pulls random emoji from array
@@ -78,47 +82,50 @@ $displayEmoji();
 
 // display emoji names in answer buttons
 const $displayNames = () => {
+  $emojisShuffle();
   for (let i = 0; i < $emojis.length; i++) {
-  //   console.log($emojis[i]);
-    // $('#one').text($randomEmojiImage.name);
-    // $('#two').text($randomEmojiImage.name);
-    // $('#three').text($randomEmojiImage.name);
-    // $('#four').text($randomEmojiImage.name);
-    $('.answer-button').eq(i).text($emojis[Math.floor(Math.random()*4)].name);
-}
+    console.log($emojis[i]);
+    $('#one').text($emojis[0].name);
+    $('#two').text($emojis[1].name);
+    $('#three').text($emojis[2].name);
+    $('#four').text($emojis[3].name);
+    // $('.answer-button').eq(i).text($emojis[Math.floor(Math.random()*4)].name);
+    // $('.answer-button').text()
+  }
 }
 $displayNames();
 
-const checkClick = () => {
-  check = $("button").click(function() {
-      console.log((this.id));
-  });
-}
-checkClick();
 
-const rightOrWrong = () => {
-  for (let i = 0; i < $emojis.length; i++) {
-    if ($('.answer-button').text($emojis[i].name === $randomEmojiImage.name)) {
-      console.log('RIGHT');
-      score++;
-      updateScore();
-    } else {
-      console.log('WRONG');
-    }
-  }
-}
-
-const updateScore = () => {
-     $('#score').text('SCORE: ' + score);
-  }
-  updateScore();
-
-
-
-nextRound = () => {
-  $displayEmoji()
-  $displayNames()
-}
+// const checkClick = () => {
+//   check = $("button").click(function() {
+//       console.log((this.id));
+//   });
+// }
+// checkClick();
+//
+// const rightOrWrong = () => {
+//   for (let i = 0; i < $emojis.length; i++) {
+//     if ($('.answer-button').text($emojis[i].name === $randomEmojiImage.name)) {
+//       console.log('RIGHT');
+//       score++;
+//       updateScore();
+//     } else {
+//       console.log('WRONG');
+//     }
+//   }
+// }
+//
+// const updateScore = () => {
+//      $('#score').text('SCORE: ' + score);
+//   }
+//   updateScore();
+//
+//
+//
+// nextRound = () => {
+//   $displayEmoji()
+//   $displayNames()
+// }
 
 
 
