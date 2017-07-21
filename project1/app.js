@@ -39,37 +39,11 @@ while(--x > 0){
   $emojis[x] = temp;
   }
 };
-// $emojisShuffle();
-// console.log($emojis);
-// console.log($emojis[1]);
-
-// ??????
-// for (let i = 0; i < $emojis.length; i++ ){
-//   $emojisMoved.push($emojis[i]);
-// }
-// console.log($emojisMoved);
 
 
 // pulls random emoji from array
 const $randomEmojiImage = $emojis[Math.floor(Math.random()*4)];
-// const $randomEmoji1 = Math.floor(Math.random()*($emojisMoved.length-1));
-// $emojisMoved.splice($randomEmoji1, 1)
-// const $randomEmoji2 = Math.floor(Math.random()*($emojisMoved.length-1));
-// $emojisMoved.splice($randomEmoji2, 1)
-// const $randomEmoji3 = Math.floor(Math.random()*($emojisMoved.length-1));
-// $emojisMoved.splice($randomEmoji3, 1)
-// const $randomEmoji4 = Math.floor(Math.random()*($emojisMoved.length-1));
-// $emojisMoved.splice($randomEmoji4, 1)
 
-// console.log($randomEmoji1);
-// console.log($randomEmoji2);
-// console.log($randomEmoji3);
-// console.log($randomEmoji4);
-// console.log($emojisMoved);
-
-  // console.log($randomEmoji);
-  // console.log($randomEmoji.name);
-  // console.log($randomEmoji.codepoint);
 
 // display random emoji on DOM
 const $displayEmoji = () => {
@@ -88,16 +62,13 @@ const $displayNames = () => {
     // displays name on DOM
     $('#one').text($emojis[0].name);
     // gives value of name in html
-    $('#one').attr('value', $emojis[0].name)
+    // $('#one').attr('value', $emojis[0].name)
     $('#two').text($emojis[1].name);
-    $('#two').attr('value', $emojis[1].name)
+    // $('#two').attr('value', $emojis[1].name)
     $('#three').text($emojis[2].name);
-    $('#three').attr('value', $emojis[2].name)
+    // $('#three').attr('value', $emojis[2].name)
     $('#four').text($emojis[3].name);
-    $('#four').attr('value', $emojis[3].name)
-
-    // $('.answer-button').eq(i).text($emojis[Math.floor(Math.random()*4)].name);
-    // $('.answer-button').text()
+    // $('#four').attr('value', $emojis[3].name)
   }
 }
 $displayNames();
@@ -111,14 +82,6 @@ const checkClick = () => {
 }
 checkClick();
 
-// const checkValue = () => {
-//   $('button').click(function(){
-//     let value = $(this.value);
-//     console.log(this.value);
-//   });
-// }
-// checkValue();
-// console.log(value);
 
 // stores button text in variable
 const checkText = () => {
@@ -129,28 +92,32 @@ const checkText = () => {
 }
 checkText();
 
-
+// compares text in button to name of displaying emoji to see if answer is right/wrong
 const rightOrWrong = () => {
   if (buttonText === $randomEmojiImage.name) {
     console.log('right');
+    score ++;
+    updateScore();
+    $('#show').text(buttonText);
+    $('button').text('Correct!');
   } else {
     console.log('wrong');
+    $('#show').text('Wrong');
+    // $('button').text('Wrong');
   }
 };
 
 
-//
-// const updateScore = () => {
-//      $('#score').text('SCORE: ' + score);
-//   }
-//   updateScore();
-//
-//
-//
-// nextRound = () => {
-//   $displayEmoji()
-//   $displayNames()
-// }
+// changes score
+const updateScore = () => {
+     $('#score').text('SCORE: ' + score);
+}
+updateScore();
+
+const nextRound = () => {
+  $displayEmoji()
+  $displayNames()
+}
 
 
 
