@@ -187,7 +187,7 @@ const rightOrWrong = () => {
     console.log('wrong');
     $('#show').text('Wrong');
     $displayX();
-    location.reload();
+    setTimeout(location.reload.bind(location), 1000);
     // $('button').text('Wrong');
   }
 };
