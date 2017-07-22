@@ -94,12 +94,15 @@ const $emojis = [
 let x = $emojis.length, y, temp;
 
 const $emojisShuffle = () => {
+  x = $emojis.length;
 while(--x > 0){
   y = Math.floor(Math.random()*(x+1));
   temp = $emojis[y];
+  // console.log(temp);
   $emojis[y] = $emojis[x];
   $emojis[x] = temp;
   }
+  // console.log($emojis);
 };
 // $emojisShuffle();
 // console.log($emojis);
@@ -123,8 +126,12 @@ const $displayNames = () => {
 $displayNames();
 
 
+// pushes random emojis into $display array
+const $pushToDisplayArray = () => {
 $display.push($emojis[0], $emojis[1], $emojis[2], $emojis[3]);
 console.log($display);
+}
+$pushToDisplayArray();
 
 
 // pulls random emoji from array
@@ -133,6 +140,7 @@ const $randomEmojiImage = () => {
 };
 $randomEmojiImage();
 console.log($randomImage);
+
 
 // display random emoji on DOM
 const $displayEmoji = () => {
@@ -189,12 +197,26 @@ const updateScore = () => {
 }
 updateScore();
 
+// emptys $display array
+const clearDisplayArray = () => {
+  $display = [];
+}
+clearDisplayArray();
+
+
 const $nextRound = () => {
-  $randomEmojiImage();
-  $emojisShuffle();
-  $displayEmoji();
+  // $emojisShuffle();
+  clearDisplayArray();
   $displayNames();
+  $pushToDisplayArray();
+  console.log($display);
+  $randomEmojiImage();
+  console.log($randomImage);
+  $displayEmoji();
+
 };
+
+
 
 
 
@@ -222,9 +244,8 @@ $('.next-button').on('click', (e) => {
 
 $('.restart-button').on('click', (e) => {
   console.log('clicked');
+  location.reload();
 })
-
-
 
 
 });
