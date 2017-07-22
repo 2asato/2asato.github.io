@@ -42,7 +42,7 @@ h1 {
 
 .emoji-box {
   border: 1px solid #24dbc9;
-  height: 150px;
+  height: 170px;
   width: 300px;
   position: relative;
   top: 30px;
@@ -55,7 +55,7 @@ h1 {
 #content {
   text-align: center;
   font-size: 125px;
-  margin-top: 0px;
+  margin-top: 10px;
 }
 
 .stats {
