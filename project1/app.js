@@ -90,13 +90,13 @@ const $displayNames = () => {
 $displayNames();
 
 
-const checkClick = () => {
-  check = $("button").click(function() {
-    // checks the click of the button by its id
-      console.log(this.id);
-  });
-}
-checkClick();
+// const checkClick = () => {
+//   check = $("button").click(function() {
+//     // checks the click of the button by its id
+//       console.log(this.id);
+//   });
+// }
+// checkClick();
 
 
 // stores button text in variable
@@ -114,8 +114,8 @@ const rightOrWrong = () => {
     console.log('right');
     score ++;
     updateScore();
-    $('#show').text(buttonText);
-    $('.answer-button').text('Correct!');
+    $('#show').text('Correct!');
+    // $('.answer-button').text('Correct!');
     $displayStar();
     } else {
     console.log('wrong');
@@ -156,11 +156,17 @@ const $button = () => {
 
 
 
-$('button').on('click', (e) => {
+$('.answer-button').on('click', (e) => {
   // console.log('clicked');
   rightOrWrong();
   // nextRound();
 })
+
+$('.next-button').on('click', (e) => {
+  console.log('clicked');
+})
+
+
 
 
 });
