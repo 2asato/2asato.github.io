@@ -168,6 +168,7 @@ const $displayX = () => {
 const checkText = () => {
   $('.answer-button').click(function() {
     buttonText = $(this).html();
+    $(this).css('background-color', '#24dbc9');
     console.log(buttonText);
   })
 };
@@ -186,6 +187,7 @@ const rightOrWrong = () => {
     console.log('wrong');
     $('#show').text('Wrong');
     $displayX();
+    location.reload();
     // $('button').text('Wrong');
   }
 };
@@ -196,6 +198,7 @@ const updateScore = () => {
      $('#score').text('SCORE: ' + score);
 }
 updateScore();
+
 
 // emptys $display array
 const clearDisplayArray = () => {
@@ -209,11 +212,10 @@ const $nextRound = () => {
   clearDisplayArray();
   $displayNames();
   $pushToDisplayArray();
-  console.log($display);
+  // console.log($display);
   $randomEmojiImage();
-  console.log($randomImage);
+  // console.log($randomImage);
   $displayEmoji();
-
 };
 
 
@@ -233,12 +235,17 @@ const $nextRound = () => {
 
 $('.answer-button').on('click', (e) => {
   // console.log('clicked');
-  rightOrWrong();
   // nextRound();
 })
 
-$('.next-button').on('click', (e) => {
+$('.submit-button').on('click', (e) => {
   console.log('clicked');
+  $('.answer-button').css('background-color', '#e6e6e6')
+  rightOrWrong();
+})
+
+$('.next-button').on('click', (e) => {
+  $('#show').text('');
   $nextRound();
 })
 

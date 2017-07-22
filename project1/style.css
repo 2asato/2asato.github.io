@@ -125,14 +125,35 @@ button:active {
   margin-top: 1px;
 }
 
-.next {
+.submit {
   height: 30px;
   width: 10%;
   text-align: center;
   clear: both;
   position: relative;
   top: 20px;
-  left: 35%;
+  left: 30%;
+}
+
+.submit-button {
+  border: 1px solid #24dbc9;
+  border-radius: 12px;
+  font-family: Frijole;
+  color: #808080;
+  background-color: #e6e6e6;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  width: 132px;
+}
+
+.next {
+  height: 30px;
+  width: 10%;
+  text-align: center;
+  clear: both;
+  position: relative;
+  top: -10px;
+  left: 44%;
 }
 
 .next-button {
@@ -146,14 +167,15 @@ button:active {
   width: 100px;
 }
 
+
 .restart {
   height: 30px;
   width: 10%;
   text-align: center;
   clear: both;
   position: relative;
-  top: -9px;
-  left: 52%;
+  top: -40px;
+  left: 55%;
 }
 
 .restart-button {
