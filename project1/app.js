@@ -1,5 +1,6 @@
 $(() => {
 
+  let randomImage = '';
   let score = 0;
   let buttonText = '';
 
@@ -42,16 +43,25 @@ while(--x > 0){
 
 
 // pulls random emoji from array
-const $randomEmojiImage = $emojis[Math.floor(Math.random()*4)];
-
+const $randomEmojiImage = () => {
+  $randomImage = $emojis[Math.floor(Math.random()*4)];
+};
+$randomEmojiImage();
 
 // display random emoji on DOM
 const $displayEmoji = () => {
-  const $emojiCodepoint = String.fromCodePoint($randomEmojiImage.codepoint);
+  const $emojiCodepoint = String.fromCodePoint($randomImage.codepoint);
     // console.log($emojiCodepoint);
     $('#content').text($emojiCodepoint);
-}
+};
 $displayEmoji();
+
+
+// display star for correct answer
+const $displayStar = () => {
+  const $star = String.fromCodePoint(0x1F31F);
+    $('#content').text($star);
+};
 
 
 // display emoji names in answer buttons
@@ -70,7 +80,7 @@ const $displayNames = () => {
     $('#four').text($emojis[3].name);
     // $('#four').attr('value', $emojis[3].name)
   }
-}
+};
 $displayNames();
 
 
@@ -89,18 +99,19 @@ const checkText = () => {
     buttonText = $(this).html();
     console.log(buttonText);
   })
-}
+};
 checkText();
 
 // compares text in button to name of displaying emoji to see if answer is right/wrong
 const rightOrWrong = () => {
-  if (buttonText === $randomEmojiImage.name) {
+  if (buttonText === $randomImage.name) {
     console.log('right');
     score ++;
     updateScore();
     $('#show').text(buttonText);
-    $('button').text('Correct!');
-  } else {
+    $('.answer-button').text('Correct!');
+    $displayStar();
+    } else {
     console.log('wrong');
     $('#show').text('Wrong');
     // $('button').text('Wrong');
@@ -114,10 +125,21 @@ const updateScore = () => {
 }
 updateScore();
 
-const nextRound = () => {
-  $displayEmoji()
-  $displayNames()
+const $nextRound = () => {
+  $randomEmojiImage();
+  $displayEmoji();
+  $displayNames();
+};
+
+
+const $button = () => {
+  $('<button/>').text('Next');
+  $button.addClass('next-button');
+  $('.next').append($button);
 }
+
+
+
 
 
 
@@ -130,6 +152,7 @@ const nextRound = () => {
 $('button').on('click', (e) => {
   // console.log('clicked');
   rightOrWrong();
+  // nextRound();
 })
 
 

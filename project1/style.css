@@ -15,6 +15,7 @@ body {
   /*border: 1px solid pink;*/
   position: absolute;
   clear: both;
+  top: 125px;
 }
 
 .rightside {
@@ -24,6 +25,7 @@ body {
   position: absolute;
   right: 5px;
   clear: both;
+  top: 125px;
 }
 
 span {
@@ -87,8 +89,9 @@ h1 {
 
 button {
   border: 1px solid #24dbc9;
-  width: 498px;
+  width: 400px;
   padding: 20px;
+  padding-top: 10px;
   height: 50px;
   border-radius: 12px;
   font-size: 20px;
@@ -117,6 +120,27 @@ button:active {
 
 #two {
   margin-top: 1px;
+}
+
+.next {
+  height: 30px;
+  width: 10%;
+  text-align: center;
+  clear: both;
+  position: relative;
+  top: 20px;
+  left: 46%;
+}
+
+.next-button {
+  border: 1px solid #24dbc9;
+  border-radius: 12px;
+  font-family: Frijole;
+  color: #808080;
+  background-color: #e6e6e6;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  width: 100px;
 }
 
 /*.footer {
