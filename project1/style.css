@@ -5,8 +5,9 @@ body {
 .header {
   /*border: 1px solid black;*/
   height: 60px;
-  width: 100%;
+  max-width: 1024px;
   position: relative;
+  margin: 0 auto;
 }
 
 .leftside {
