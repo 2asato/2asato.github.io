@@ -40,13 +40,15 @@ h1 {
 }
 
 .emoji-box {
-  /*border: 1px solid red;*/
+  border: 1px solid #24dbc9;
   height: 150px;
-  width: 400px;
+  width: 300px;
   position: relative;
   top: 30px;
-  left: 29%;
+  left: 34.5%;
   clear: both;
+  background-color: #e6e6e6;
+  border-radius: 12px;
 }
 
 #content {

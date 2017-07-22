@@ -220,6 +220,10 @@ $('.next-button').on('click', (e) => {
   $nextRound();
 })
 
+$('.restart-button').on('click', (e) => {
+  console.log('clicked');
+})
+
 
 
 
