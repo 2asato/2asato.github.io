@@ -3,29 +3,51 @@ $(() => {
   let randomImage = '';
   let score = 0;
   let buttonText = '';
+  let $display = [];
 
 // array of emojis, codepoints are used to display the emoji
 const $emojis = [
   {
-    name: 'Grinning Face',
+    name: 'Grinning',
     codepoint: 0x1F600,
-    class: 'grinning',
   },
   {
-    name: 'Crying Face',
+    name: 'Crying',
     codepoint: 0x1f622,
-    class: 'crying',
   },
   {
-    name: 'Winking Face',
+    name: 'Winking',
     codepoint: 0x1F609,
-    class: 'winking',
   },
   {
-    name: 'Smirking Face',
+    name: 'Smirking',
     codepoint: 0x1F60F,
-    class: 'smirking',
-  }
+  },
+  {
+    name: 'Hugging',
+    codepoint: 0x1F917,
+  },
+  {
+    name: 'Tears of joy',
+    codepoint: 0x1F602,
+  },
+  {
+    name: 'ROFL',
+    codepoint: 0x1F923,
+  },
+  {
+    name: 'Persevering',
+    codepoint: 0x1F623,
+  },
+  {
+    name: 'Confounded',
+    codepoint: 0x1F616,
+  },
+  {
+    name: 'Tired',
+    codepoint: 0x1F62B,
+  },
+
 ];
 // console.log($emojis);
 
@@ -40,13 +62,38 @@ while(--x > 0){
   $emojis[x] = temp;
   }
 };
+// $emojisShuffle();
+// console.log($emojis);
+
+
+const $displayNames = () => {
+  $emojisShuffle();
+  // for (let i = 0; i < $emojis.length; i++) {
+    // console.log($emojis[i]);
+    // displays name on DOM
+    $('#one').text($emojis[0].name);
+    // gives value of name in html
+    // $('#one').attr('value', $emojis[0].name)
+    $('#two').text($emojis[1].name);
+    // $('#two').attr('value', $emojis[1].name)
+    $('#three').text($emojis[2].name);
+    // $('#three').attr('value', $emojis[2].name)
+    $('#four').text($emojis[3].name);
+    // $('#four').attr('value', $emojis[3].name)
+};
+$displayNames();
+
+
+$display.push($emojis[0], $emojis[1], $emojis[2], $emojis[3]);
+console.log($display);
 
 
 // pulls random emoji from array
 const $randomEmojiImage = () => {
-  $randomImage = $emojis[Math.floor(Math.random()*4)];
+  $randomImage = $display[Math.floor(Math.random()*$display.length)];
 };
 $randomEmojiImage();
+console.log($randomImage);
 
 // display random emoji on DOM
 const $displayEmoji = () => {
@@ -63,7 +110,7 @@ const $displayStar = () => {
   $('#content').text($star);
 };
 
-
+// display x for wrong answer
 const $displayX = () => {
   const $x = String.fromCodePoint(0x274C);
   $('#content').text($x);
@@ -71,23 +118,24 @@ const $displayX = () => {
 
 
 // display emoji names in answer buttons
-const $displayNames = () => {
-  $emojisShuffle();
-  for (let i = 0; i < $emojis.length; i++) {
-    // console.log($emojis[i]);
-    // displays name on DOM
-    $('#one').text($emojis[0].name);
-    // gives value of name in html
-    // $('#one').attr('value', $emojis[0].name)
-    $('#two').text($emojis[1].name);
-    // $('#two').attr('value', $emojis[1].name)
-    $('#three').text($emojis[2].name);
-    // $('#three').attr('value', $emojis[2].name)
-    $('#four').text($emojis[3].name);
-    // $('#four').attr('value', $emojis[3].name)
-  }
-};
-$displayNames();
+// const $displayNames = () => {
+//   $emojisShuffle();
+//   // for (let i = 0; i < $emojis.length; i++) {
+//     // console.log($emojis[i]);
+//
+//     // displays name on DOM
+//     $('#one').text($emojis[0].name);
+//     // gives value of name in html
+//     // $('#one').attr('value', $emojis[0].name)
+//     $('#two').text($emojis[1].name);
+//     // $('#two').attr('value', $emojis[1].name)
+//     $('#three').text($emojis[2].name);
+//     // $('#three').attr('value', $emojis[2].name)
+//     $('#four').text($emojis[3].name);
+//     // $('#four').attr('value', $emojis[3].name)
+// //  }
+// };
+// $displayNames();
 
 
 // const checkClick = () => {
@@ -134,16 +182,16 @@ updateScore();
 
 const $nextRound = () => {
   $randomEmojiImage();
+  $emojisShuffle();
   $displayEmoji();
   $displayNames();
 };
 
-
-const $button = () => {
-  $('<button/>').text('Next');
-  $button.addClass('next-button');
-  $('.next').append($button);
+const randomIndex = () => {
+  const randomIndexNumber = Math.floor(Math.random()*$emojis.length);
+  console.log(randomIndexNumber);
 }
+randomIndex();
 
 
 
@@ -164,6 +212,7 @@ $('.answer-button').on('click', (e) => {
 
 $('.next-button').on('click', (e) => {
   console.log('clicked');
+  $nextRound();
 })
 
 
