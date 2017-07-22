@@ -47,7 +47,46 @@ const $emojis = [
     name: 'Tired',
     codepoint: 0x1F62B,
   },
-
+  {
+    name: 'Thinking',
+    codepoint: 0x1F914,
+  },
+  {
+    name: 'Unamused',
+    codepoint: 0x1F612,
+  },
+  {
+    name: 'Grimacing',
+    codepoint: 0x1F62C,
+  },
+  {
+    name: 'Angry',
+    codepoint: 0x1F620,
+  },
+  {
+    name: 'Kissing',
+    codepoint: 0x1F617,
+  },
+  {
+    name: 'Expressionless',
+    codepoint: 0x1F611,
+  },
+  {
+    name: 'Neutral',
+    codepoint: 0x1F610,
+  },
+  {
+    name: 'Hushed',
+    codepoint: 0x1F62F,
+  },
+  {
+    name: 'Confused',
+    codepoint: 0x1F615,
+  },
+  {
+    name: 'Astonished',
+    codepoint: 0x1F632,
+  },
 ];
 // console.log($emojis);
 
@@ -117,36 +156,6 @@ const $displayX = () => {
 };
 
 
-// display emoji names in answer buttons
-// const $displayNames = () => {
-//   $emojisShuffle();
-//   // for (let i = 0; i < $emojis.length; i++) {
-//     // console.log($emojis[i]);
-//
-//     // displays name on DOM
-//     $('#one').text($emojis[0].name);
-//     // gives value of name in html
-//     // $('#one').attr('value', $emojis[0].name)
-//     $('#two').text($emojis[1].name);
-//     // $('#two').attr('value', $emojis[1].name)
-//     $('#three').text($emojis[2].name);
-//     // $('#three').attr('value', $emojis[2].name)
-//     $('#four').text($emojis[3].name);
-//     // $('#four').attr('value', $emojis[3].name)
-// //  }
-// };
-// $displayNames();
-
-
-// const checkClick = () => {
-//   check = $("button").click(function() {
-//     // checks the click of the button by its id
-//       console.log(this.id);
-//   });
-// }
-// checkClick();
-
-
 // stores button text in variable
 const checkText = () => {
   $('.answer-button').click(function() {
@@ -187,11 +196,7 @@ const $nextRound = () => {
   $displayNames();
 };
 
-const randomIndex = () => {
-  const randomIndexNumber = Math.floor(Math.random()*$emojis.length);
-  console.log(randomIndexNumber);
-}
-randomIndex();
+
 
 
 

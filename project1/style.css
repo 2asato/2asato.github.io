@@ -129,7 +129,7 @@ button:active {
   clear: both;
   position: relative;
   top: 20px;
-  left: 46%;
+  left: 35%;
 }
 
 .next-button {
@@ -141,6 +141,28 @@ button:active {
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   width: 100px;
+}
+
+.restart {
+  height: 30px;
+  width: 10%;
+  text-align: center;
+  clear: both;
+  position: relative;
+  top: -9px;
+  left: 51%;
+}
+
+.restart-button {
+  border: 1px solid #24dbc9;
+  border-radius: 12px;
+  font-family: Frijole;
+  color: #808080;
+  background-color: #e6e6e6;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  width: 143px;
+  clear: both;
 }
 
 /*.footer {
