@@ -60,7 +60,13 @@ $displayEmoji();
 // display star for correct answer
 const $displayStar = () => {
   const $star = String.fromCodePoint(0x1F31F);
-    $('#content').text($star);
+  $('#content').text($star);
+};
+
+
+const $displayX = () => {
+  const $x = String.fromCodePoint(0x274C);
+  $('#content').text($x);
 };
 
 
@@ -114,6 +120,7 @@ const rightOrWrong = () => {
     } else {
     console.log('wrong');
     $('#show').text('Wrong');
+    $displayX();
     // $('button').text('Wrong');
   }
 };
