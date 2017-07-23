@@ -2,6 +2,7 @@ $(() => {
 
   let randomImage = '';
   let score = 0;
+  let highScore = 0;
   let buttonText = '';
   let $display = [];
 
@@ -165,21 +166,21 @@ const $displayX = () => {
 
 
 // stores button text in variable
-const checkText = () => {
+const $checkText = () => {
   $('.answer-button').click(function() {
     buttonText = $(this).html();
     $(this).css('background-color', '#24dbc9');
     console.log(buttonText);
   })
 };
-checkText();
+$checkText();
 
 // compares text in button to name of displaying emoji to see if answer is right/wrong
-const rightOrWrong = () => {
+const $rightOrWrong = () => {
   if (buttonText === $randomImage.name) {
     console.log('right');
     score ++;
-    updateScore();
+    $updateScore();
     $('#show').text('Correct!');
     // $('.answer-button').text('Correct!');
     $displayStar();
@@ -187,29 +188,42 @@ const rightOrWrong = () => {
     console.log('wrong');
     $('#show').text('Wrong');
     $displayX();
-    setTimeout(location.reload.bind(location), 1000);
+    $gameEnd();
+    // setTimeout(location.reload.bind(location), 1000);
     // $('button').text('Wrong');
   }
 };
 
 
 // changes score
-const updateScore = () => {
-     $('#score').text('SCORE: ' + score);
+const $updateScore = () => {
+  $('#score').text('SCORE: ' + score);
 }
-updateScore();
+$updateScore();
+
+const $postHighScore = () => {
+  $('#high-score').text('HIGH SCORE: ' + highScore);
+};
+$postHighScore();
+
+const $updateHighScore = () => {
+  if (score > highScore){
+    $('#high-score').text('HIGH SCORE: ' + score);
+  }
+};
+
 
 
 // emptys $display array
-const clearDisplayArray = () => {
+const $clearDisplayArray = () => {
   $display = [];
 }
-clearDisplayArray();
+$clearDisplayArray();
 
-
+// runs the next round
 const $nextRound = () => {
   // $emojisShuffle();
-  clearDisplayArray();
+  $clearDisplayArray();
   $displayNames();
   $pushToDisplayArray();
   // console.log($display);
@@ -217,6 +231,14 @@ const $nextRound = () => {
   // console.log($randomImage);
   $displayEmoji();
 };
+
+
+const $gameEnd = () => {
+  if (score > highScore){
+    $('#show').text('Congrats new high score!').css('font-size', '28px');
+    $updateHighScore();
+  }
+}
 
 
 
@@ -241,16 +263,19 @@ $('.answer-button').on('click', (e) => {
 $('.submit-button').on('click', (e) => {
   console.log('clicked');
   $('.answer-button').css('background-color', '#e6e6e6')
-  rightOrWrong();
+  $rightOrWrong();
+  // postHighScore();
 })
 
 $('.next-button').on('click', (e) => {
   $('#show').text('');
   $nextRound();
+  // postHighScore();
 })
 
 $('.restart-button').on('click', (e) => {
   console.log('clicked');
+  // postHighScore();
   location.reload();
 })
 
