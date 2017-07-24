@@ -189,6 +189,7 @@ const $rightOrWrong = () => {
     $('#show').text('Wrong');
     $displayX();
     $gameEnd();
+    $nextRound();
     // setTimeout(location.reload.bind(location), 2000);
     // $('button').text('Wrong');
   }
