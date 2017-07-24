@@ -2,7 +2,7 @@ $(() => {
 
   let randomImage = '';
   let score = 0;
-  let highScore = 1;
+  let highScore = 0;
   let buttonText = '';
   let $display = [];
 
@@ -189,6 +189,7 @@ const rightOrWrong = () => {
     $('#show').text('Wrong');
     $displayX();
     $gameEnd();
+    $restart();
     // setTimeout(location.reload.bind(location), 1000);
     // $('button').text('Wrong');
   }
@@ -240,6 +241,17 @@ const $gameEnd = () => {
   }
 }
 
+const $restart = () => {
+  clearDisplayArray();
+  $displayNames();
+  $pushToDisplayArray();
+  // console.log($display);
+  $randomEmojiImage();
+  // console.log($randomImage);
+  $displayEmoji();
+
+}
+
 
 
 
@@ -281,16 +293,3 @@ $('.restart-button').on('click', (e) => {
 
 
 });
-
-
-//Globals HERE
-// var score = 0;
-// var highscore = 0;
-// //Update Function HERE//Psuedo code / Real code
-// //if(player got hit by something (in other terms, he lost the game)){
-//     //We know before this point of losing the player actually got 'some' points
-// if (score > localStorage.getItem("highscore")) {
-// localStorage.setItem("highscore", score);
-// }
-// //If the score is greater than what was stored, then I tell localStorage, "Hey set 'score' as your new stored score as the highscore now//
-// After that I display it in the update function when the player clicks "try again" or something of the sort to reset the gamehighScoreText.content = 'HIGHSCORE: ' + localStorage.getItem("highscore");
