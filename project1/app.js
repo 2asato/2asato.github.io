@@ -135,7 +135,7 @@ console.log($display);
 $pushToDisplayArray();
 
 
-// pulls random emoji from array
+// pulls random emoji from array for display
 const $randomEmojiImage = () => {
   $randomImage = $display[Math.floor(Math.random()*$display.length)];
 };
@@ -189,7 +189,6 @@ const rightOrWrong = () => {
     $('#show').text('Wrong');
     $displayX();
     $gameEnd();
-    $restart();
     // setTimeout(location.reload.bind(location), 1000);
     // $('button').text('Wrong');
   }
