@@ -2,7 +2,7 @@ $(() => {
 
   let randomImage = '';
   let score = 0;
-  let highScore = 0;
+  let highScore = 1;
   let buttonText = '';
   let $display = [];
 
@@ -166,21 +166,21 @@ const $displayX = () => {
 
 
 // stores button text in variable
-const $checkText = () => {
+const checkText = () => {
   $('.answer-button').click(function() {
     buttonText = $(this).html();
     $(this).css('background-color', '#24dbc9');
     console.log(buttonText);
   })
 };
-$checkText();
+checkText();
 
 // compares text in button to name of displaying emoji to see if answer is right/wrong
-const $rightOrWrong = () => {
+const rightOrWrong = () => {
   if (buttonText === $randomImage.name) {
     console.log('right');
     score ++;
-    $updateScore();
+    updateScore();
     $('#show').text('Correct!');
     // $('.answer-button').text('Correct!');
     $displayStar();
@@ -189,25 +189,24 @@ const $rightOrWrong = () => {
     $('#show').text('Wrong');
     $displayX();
     $gameEnd();
-    $nextRound();
-    // setTimeout(location.reload.bind(location), 2000);
+    // setTimeout(location.reload.bind(location), 1000);
     // $('button').text('Wrong');
   }
 };
 
 
 // changes score
-const $updateScore = () => {
+const updateScore = () => {
   $('#score').text('SCORE: ' + score);
 }
-$updateScore();
+updateScore();
 
-const $postHighScore = () => {
+const postHighScore = () => {
   $('#high-score').text('HIGH SCORE: ' + highScore);
 };
-$postHighScore();
+postHighScore();
 
-const $updateHighScore = () => {
+const updateHighScore = () => {
   if (score > highScore){
     $('#high-score').text('HIGH SCORE: ' + score);
   }
@@ -216,15 +215,15 @@ const $updateHighScore = () => {
 
 
 // emptys $display array
-const $clearDisplayArray = () => {
+const clearDisplayArray = () => {
   $display = [];
 }
-$clearDisplayArray();
+clearDisplayArray();
 
-// runs the next round
+
 const $nextRound = () => {
   // $emojisShuffle();
-  $clearDisplayArray();
+  clearDisplayArray();
   $displayNames();
   $pushToDisplayArray();
   // console.log($display);
@@ -236,8 +235,8 @@ const $nextRound = () => {
 
 const $gameEnd = () => {
   if (score > highScore){
-    $('#show').text('Congrats new high score!').css('font-size', '28px');
-    $updateHighScore();
+    $('#show').text('Congrats new high score!').css('font-size', '20px');
+    updateHighScore();
   }
 }
 
@@ -264,7 +263,7 @@ $('.answer-button').on('click', (e) => {
 $('.submit-button').on('click', (e) => {
   console.log('clicked');
   $('.answer-button').css('background-color', '#e6e6e6')
-  $rightOrWrong();
+  rightOrWrong();
   // postHighScore();
 })
 
@@ -282,3 +281,16 @@ $('.restart-button').on('click', (e) => {
 
 
 });
+
+
+//Globals HERE
+// var score = 0;
+// var highscore = 0;
+// //Update Function HERE//Psuedo code / Real code
+// //if(player got hit by something (in other terms, he lost the game)){
+//     //We know before this point of losing the player actually got 'some' points
+// if (score > localStorage.getItem("highscore")) {
+// localStorage.setItem("highscore", score);
+// }
+// //If the score is greater than what was stored, then I tell localStorage, "Hey set 'score' as your new stored score as the highscore now//
+// After that I display it in the update function when the player clicks "try again" or something of the sort to reset the gamehighScoreText.content = 'HIGHSCORE: ' + localStorage.getItem("highscore");
